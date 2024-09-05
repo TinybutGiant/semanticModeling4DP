@@ -1,0 +1,41 @@
+﻿type,description,index,doi,title
+Material,Continuous Carbon Fiber Reinforced Shape Memory Polymer Composites (CFRSMPC),1,10.1016/j.compositesb.2020.108034,4D printed electro-induced continuous carbon fiber reinforced shape memory polymer composites with excellent bending resistance
+Material,Shape Memory Alloy (SMA) Wires,2,10.1007/s40964-023-00456-1,A study of the functional capabilities of shape memory alloy-based 4D printed analogous bending actuators
+Material,Polystyrene (PS) and Chitosan Hydrogel Ink,3,10.1016/j.sna.2018.03.034,Pattern-driven 4D printing
+Material,Polylactic Acid (PLA),4,10.1109/SCOReD53546.2021.9652719,Development of a 4D-Printed PLA Microgripper
+Material,Polyelectrolyte Actuator,5,10.1007/s10338-019-00137-z,Topology-Optimized 4D Printing of a Soft Actuator
+Material,Shape Memory Polymers (SMPs),6,10.1088/1361-665X/aa95ec,Increasing dimension of structures by 4D printing shape memory polymers via fused deposition modeling
+Material,Triple shape memory polymers (SMPs),7,10.1088/1361-665X/aabc2a,Triple shape memory polymers by 4D printing
+Material,Temperature-responsive Shape-Memory Polymer (SMP) Elements,8,10.3390/polym12030519,Shape-Adaptive Metastructures with Variable Bandgap Regions by 4D Printing
+Material,Oleogel and Purple Potato Puree,9,10.1016/j.jfoodeng.2021.110757,Microwave-induced spontaneous deformation of purple potato puree and oleogel in 4D printing
+Material,Polylactic Acid (PLA) and Thermoplastic Polyurethane (TPU),10,10.1007/s00170-024-13130-9,Temperature-driven controllable deformation in 4D printing through programmable heterogeneous laminated bilayer structure
+Usage,Electrically Activated and Deployable Structures,1,10.1016/j.compositesb.2020.108034,4D printed electro-induced continuous carbon fiber reinforced shape memory polymer composites with excellent bending resistance
+Usage,Self-Assembly Devices for Wildlife Rehabilitation,2,10.1007/s40964-023-00456-1,A study of the functional capabilities of shape memory alloy-based 4D printed analogous bending actuators
+Usage,Self-Bending Actuators for Self-Deployable Structures,3,10.1016/j.sna.2018.03.034,Pattern-driven 4D printing
+Usage,Biomedical Micromanipulations,4,10.1109/SCOReD53546.2021.9652719,Development of a 4D-Printed PLA Microgripper
+Usage,Soft Robotics,5,10.1007/s10338-019-00137-z,Topology-Optimized 4D Printing of a Soft Actuator
+Usage,Self-Bending Features in 3D Printed Structures,6,10.1088/1361-665X/aa95ec,Increasing dimension of structures by 4D printing shape memory polymers via fused deposition modeling
+Usage,Mechanical/Biomedical Adaptive Structures,7,10.1088/1361-665X/aabc2a,Triple shape memory polymers by 4D printing
+Usage,Vibration and Acoustic Noise Filtering Metastructures,8,10.3390/polym12030519,Shape-Adaptive Metastructures with Variable Bandgap Regions by 4D Printing
+Usage,Shape-Changing Food Products,9,10.1016/j.jfoodeng.2021.110757,Microwave-induced spontaneous deformation of purple potato puree and oleogel in 4D printing
+Usage,Temperature-Driven Controllable Deformation Structures,10,10.1007/s00170-024-13130-9,Temperature-driven controllable deformation in 4D printing through programmable heterogeneous laminated bilayer structure
+Stimuli,Electric Heating,1,10.1016/j.compositesb.2020.108034,4D printed electro-induced continuous carbon fiber reinforced shape memory polymer composites with excellent bending resistance
+Stimuli,Electric Heating,2,10.1007/s40964-023-00456-1,A study of the functional capabilities of shape memory alloy-based 4D printed analogous bending actuators
+Stimuli,Light Emission (Infrared Light),3,10.1016/j.sna.2018.03.034,Pattern-driven 4D printing
+Stimuli,Heat,4,10.1109/SCOReD53546.2021.9652719,Development of a 4D-Printed PLA Microgripper
+Stimuli,Electrolyte Solution,5,10.1007/s10338-019-00137-z,Topology-Optimized 4D Printing of a Soft Actuator
+Stimuli,Heat,6,10.1088/1361-665X/aa95ec,Increasing dimension of structures by 4D printing shape memory polymers via fused deposition modeling
+Stimuli,Heat,7,10.1088/1361-665X/aabc2a,Triple shape memory polymers by 4D printing
+Stimuli,Heat,8,10.3390/polym12030519,Shape-Adaptive Metastructures with Variable Bandgap Regions by 4D Printing
+Stimuli,Microwave Heat,9,10.1016/j.jfoodeng.2021.110757,Microwave-induced spontaneous deformation of purple potato puree and oleogel in 4D printing
+Stimuli,Heat,10,10.1007/s00170-024-13130-9,Temperature-driven controllable deformation in 4D printing through programmable heterogeneous laminated bilayer structure
+Response,Bending,1,10.1016/j.compositesb.2020.108034,4D printed electro-induced continuous carbon fiber reinforced shape memory polymer composites with excellent bending resistance
+Response,Bending,2,10.1007/s40964-023-00456-1,A study of the functional capabilities of shape memory alloy-based 4D printed analogous bending actuators
+Response,Bending,3,10.1016/j.sna.2018.03.034,Pattern-driven 4D printing
+Response,Bending,4,10.1109/SCOReD53546.2021.9652719,Development of a 4D-Printed PLA Microgripper
+Response,Bending,5,10.1007/s10338-019-00137-z,Topology-Optimized 4D Printing of a Soft Actuator
+Response,Bending,6,10.1088/1361-665X/aa95ec,Increasing dimension of structures by 4D printing shape memory polymers via fused deposition modeling
+Response,Bending,7,10.1088/1361-665X/aabc2a,Triple shape memory polymers by 4D printing
+Response,Bending,8,10.3390/polym12030519,Shape-Adaptive Metastructures with Variable Bandgap Regions by 4D Printing
+Response,Bending,9,10.1016/j.jfoodeng.2021.110757,Microwave-induced spontaneous deformation of purple potato puree and oleogel in 4D printing
+Response,Bending,10,10.1007/s00170-024-13130-9,Temperature-driven controllable deformation in 4D printing through programmable heterogeneous laminated bilayer structure
