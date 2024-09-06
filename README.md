@@ -33,7 +33,8 @@ step 1: Import the nodes from data.csv and doi-data.csv, with header as properti
 	    s.description = row.description,  
 	    s.index = toInteger(row.index),  
 	    s.title = row.title;        
-explain: MERGE (s:Stimuli {doi: row.doi}): This ensures that a Stimuli node is created only if there isn't already a node with the same doi. If a node with the same doi already exists, it will not create a duplicate.
+Note：Stimuli type (e.g., Heat, Electric Heating) is duplicated, so we need to ensure that each Stimuli node is created only once per unique doi.
+Cypher code explain: MERGE (s:Stimuli {doi: row.doi}): This ensures that a Stimuli node is created only if there isn't already a node with the same doi. If a node with the same doi already exists, it will not create a duplicate.
 
 1.4 Response nodes
 
