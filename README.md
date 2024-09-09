@@ -1,6 +1,6 @@
 # semanticModeling4DP
 
-step 1: Import the nodes from data.csv and doi-data.csv, with header as properties
+step 1: Import the nodes from data.csv and doi-data.csv, with header as properties, into the Neo4J.
 
 1.1 Material nodes
 
