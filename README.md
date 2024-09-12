@@ -1,10 +1,21 @@
 # semanticModeling4DP
+Extra steps： Contraint for doi
+	
+ 	CREATE CONSTRAINT doi_unique IF NOT EXISTS
+	FOR (d:DOI)
+	REQUIRE d.doi IS UNIQUE;
+
+	CREATE CONSTRAINT doi_unique IF NOT EXISTS
+	FOR (m:Material)
+	REQUIRE m.index IS UNIQUE;
+
 
 step 1: Import the nodes from data.csv and doi-data.csv, with header as properties, into the Neo4J.
 
 1.1 Material nodes
 
-	LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/main/data.csv' AS row
+	LOAD CSV WITH HEADERS 
+ 	FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/main/data.csv' AS row
 	WITH row
 	WHERE row.type = 'Material'
 	MERGE (m:Material {description: row.description})
@@ -15,7 +26,8 @@ step 1: Import the nodes from data.csv and doi-data.csv, with header as properti
 
 1.2 Usage nodes
 
-	LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/main/data.csv' AS row
+	LOAD CSV WITH HEADERS 
+ 	FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/main/data.csv' AS row
 	WITH row
 	WHERE row.type = 'Usage'
 	MERGE (m:Usage {description: row.description})
@@ -26,7 +38,8 @@ step 1: Import the nodes from data.csv and doi-data.csv, with header as properti
 
  1.3 Stimuli nodes
 
-	LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/main/data.csv' AS row
+	LOAD CSV WITH HEADERS 
+ 	FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/main/data.csv' AS row
 	WITH row
 	MERGE (s:Stimuli {doi: row.doi})
 	ON CREATE SET 
@@ -39,7 +52,8 @@ Cypher code explain: MERGE (s:Stimuli {doi: row.doi}): This ensures that a Stimu
 
 1.4 Response nodes
 
-	LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/main/data.csv' AS row
+	LOAD CSV WITH HEADERS 
+ 	FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/main/data.csv' AS row
 	WITH row
 	WHERE row.type = 'Response'
 	MERGE (m:Response {description: row.description})
@@ -60,9 +74,5 @@ Relationship 1: each material node has doi, or each doi has material.
 
 
 
-Extra steps： Contraint for doi
-	
- 	CREATE CONSTRAINT doi_unique IF NOT EXISTS
-	FOR (d:DOI)
-	REQUIRE d.doi IS UNIQUE;
+
 
