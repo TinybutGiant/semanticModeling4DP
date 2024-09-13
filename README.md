@@ -62,7 +62,8 @@ Cypher code explain: MERGE (s:Stimuli {doi: row.doi}): This ensures that a Stimu
 	    m.doi = row.doi, 
 	    m.title = row.title;
 
-Step 2: Add relationships between nodes
+Step 2: Add relationships between nodes from has_doi.csv , ***.csv, and ***.csv, with header as properties, into the Neo4J. Or you can directly add from the nodes.
+However, the seperate relationship csv files can provide a better management.
 
 Relationship 1: each material node has doi, or each doi has material. 
 	
