@@ -1,7 +1,9 @@
 # semanticModeling4DP
 A semantic modeling in neo4j involves: node data, constraints, relationship data, extra labels.
 
-Extra steps： Contraint for doi
+There are 4 main importing steps, "Creating constraints for certain nodes", "Importing nodes' data from csv files", "Creating relationships' data from csv files", and "Creating extra labels on nodes (for performance improving)".
+
+## Step 1： Contraint for doi
 	
  	CREATE CONSTRAINT doi_unique IF NOT EXISTS
 	FOR (d:DOI)
@@ -12,7 +14,7 @@ Extra steps： Contraint for doi
 	REQUIRE m.index IS UNIQUE;
 
 
-**Step 1: Import the nodes from data.csv and doi-data.csv, with header as properties, into the Neo4J.
+## Step 2: Import the nodes from data.csv and doi-data.csv, with header as properties, into the Neo4J.
 
 1.1 Material nodes
 
@@ -64,7 +66,7 @@ Cypher code explain: MERGE (s:Stimuli {doi: row.doi}): This ensures that a Stimu
 	    m.doi = row.doi, 
 	    m.title = row.title;
 
-**Step 2: Add relationships between nodes from has_doi.csv , ***.csv, and ***.csv, with header as properties, into the Neo4J. Or you can directly add from the nodes.
+## Step 3: Add relationships between nodes from has_doi.csv , ***.csv, and ***.csv, with header as properties, into the Neo4J. Or you can directly add from the nodes.
 However, the seperate relationship csv files can provide a better management.
 
 Relationship 1: each material node has doi, or each doi has material. 
@@ -73,7 +75,7 @@ Relationship 1: each material node has doi, or each doi has material.
 	WHERE m.doi = d.doi
 	MERGE (m)-[:HAS_DOI]->(d);
 
-**Step 3: Add extra labels.
+## Step 4: Add extra labels.
 
 
 
