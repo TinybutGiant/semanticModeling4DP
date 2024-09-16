@@ -24,9 +24,9 @@ WITH row
 WHERE row.type = 'Material'
 MERGE (m:Material {description: row.description})
 ON CREATE SET 
-	m.index = toInteger(row.index), 
-	m.doi = row.doi, 
-	m.title = row.title;
+    m.index = toInteger(row.index), 
+    m.doi = row.doi, 
+    m.title = row.title;
 ```
 ### 1.2 Usage nodes
 ```
@@ -36,9 +36,9 @@ WITH row
 WHERE row.type = 'Usage'
 MERGE (m:Usage {description: row.description})
 ON CREATE SET 
-	m.index = toInteger(row.index), 
-	m.doi = row.doi, 
-	m.title = row.title;
+    m.index = toInteger(row.index),
+    m.doi = row.doi, 
+    m.title = row.title;
 ```
 ### 1.3 Stimuli nodes
 ```
@@ -83,21 +83,37 @@ MERGE (m)-[:HAS_DOI]->(d);
 # Final a single import process using the CALL clause with IN TRANSACTIONS.
 ```
 CALL {
-	CREATE CONSTRAINT doi_unique IF NOT EXISTS
-	FOR (d:DOI)
-	REQUIRE d.doi IS UNIQUE;
+    CREATE CONSTRAINT doi_unique IF NOT EXISTS
+    FOR (d:DOI)
+    REQUIRE d.doi IS UNIQUE;
 
-	CREATE CONSTRAINT doi_unique IF NOT EXISTS
-	FOR (m:Material)
-	REQUIRE m.index IS UNIQUE;
+    CREATE CONSTRAINT doi_unique IF NOT EXISTS
+    FOR (m:Material)
+    REQUIRE m.index IS UNIQUE;
 } IN TRANSACTIONS [OF X ROWS]
 
 CALL {
-  // query
+    LOAD CSV WITH HEADERS 
+    FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/main/data.csv' AS row
+    WITH row
+    WHERE row.type = 'Material'
+    MERGE (m:Material {description: row.description})
+    ON CREATE SET 
+        m.index = toInteger(row.index), 
+        m.doi = row.doi, 
+        m.title = row.title;
 } IN TRANSACTIONS [OF X ROWS]
 
 CALL {
-  // query
+    LOAD CSV WITH HEADERS 
+    FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/main/data.csv' AS row
+    WITH row
+    WHERE row.type = 'Usage'
+    MERGE (m:Usage {description: row.description})
+    ON CREATE SET 
+      m.index = toInteger(row.index),
+      m.doi = row.doi, 
+      m.title = row.title;
 } IN TRANSACTIONS [OF X ROWS]
 
 CALL {
