@@ -81,5 +81,26 @@ MERGE (m)-[:HAS_DOI]->(d);
 
 
 # Final a single import process using the CALL clause with IN TRANSACTIONS.
+```
+CALL {
+	CREATE CONSTRAINT doi_unique IF NOT EXISTS
+	FOR (d:DOI)
+	REQUIRE d.doi IS UNIQUE;
 
+	CREATE CONSTRAINT doi_unique IF NOT EXISTS
+	FOR (m:Material)
+	REQUIRE m.index IS UNIQUE;
+} IN TRANSACTIONS [OF X ROWS]
 
+CALL {
+  // query
+} IN TRANSACTIONS [OF X ROWS]
+
+CALL {
+  // query
+} IN TRANSACTIONS [OF X ROWS]
+
+CALL {
+  // query
+} IN TRANSACTIONS [OF X ROWS]
+```
