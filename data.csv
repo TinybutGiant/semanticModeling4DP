@@ -39,3 +39,23 @@ Response,Bending,7,10.1088/1361-665X/aabc2a,Triple shape memory polymers by 4D p
 Response,Bending,8,10.3390/polym12030519,Shape-Adaptive Metastructures with Variable Bandgap Regions by 4D Printing
 Response,Bending,9,10.1016/j.jfoodeng.2021.110757,Microwave-induced spontaneous deformation of purple potato puree and oleogel in 4D printing
 Response,Bending,10,10.1007/s00170-024-13130-9,Temperature-driven controllable deformation in 4D printing through programmable heterogeneous laminated bilayer structure
+Transformation,Dual shape one-way reversible,1,10.1016/j.compositesb.2020.108034,4D printed electro-induced continuous carbon fiber reinforced shape memory polymer composites with excellent bending resistance
+Transformation,Dual shape one-way reversible,2,10.1007/s40964-023-00456-1,A study of the functional capabilities of shape memory alloy-based 4D printed analogous bending actuators
+Transformation,Dual shape one-way reversible,3,10.1016/j.sna.2018.03.034,Pattern-driven 4D printing
+Transformation,Dual shape one-way reversible,4,10.1109/SCOReD53546.2021.9652719,Development of a 4D-Printed PLA Microgripper
+Transformation,Dual shape one-way reversible,5,10.1007/s10338-019-00137-z,Topology-Optimized 4D Printing of a Soft Actuator
+Transformation,Dual shape one-way reversible,6,10.1088/1361-665X/aa95ec,Increasing dimension of structures by 4D printing shape memory polymers via fused deposition modeling
+Transformation,Dual shape one-way reversible,7,10.1088/1361-665X/aabc2a,Triple shape memory polymers by 4D printing
+Transformation,Dual shape one-way reversible,8,10.3390/polym12030519,Shape-Adaptive Metastructures with Variable Bandgap Regions by 4D Printing
+Transformation,Dual shape one-way reversible,9,10.1016/j.jfoodeng.2021.110757,Microwave-induced spontaneous deformation of purple potato puree and oleogel in 4D printing
+Transformation,Dual shape one-way reversible,10,10.1007/s00170-024-13130-9,Temperature-driven controllable deformation in 4D printing through programmable heterogeneous laminated bilayer structure
+Behavior,Shape changing,1,10.1016/j.compositesb.2020.108034,4D printed electro-induced continuous carbon fiber reinforced shape memory polymer composites with excellent bending resistance
+Behavior,Shape changing,2,10.1007/s40964-023-00456-1,A study of the functional capabilities of shape memory alloy-based 4D printed analogous bending actuators
+Behavior,Shape changing,3,10.1016/j.sna.2018.03.034,Pattern-driven 4D printing
+Behavior,Shape changing,4,10.1109/SCOReD53546.2021.9652719,Development of a 4D-Printed PLA Microgripper
+Behavior,Shape changing,5,10.1007/s10338-019-00137-z,Topology-Optimized 4D Printing of a Soft Actuator
+Behavior,Shape changing,6,10.1088/1361-665X/aa95ec,Increasing dimension of structures by 4D printing shape memory polymers via fused deposition modeling
+Behavior,Shape changing,7,10.1088/1361-665X/aabc2a,Triple shape memory polymers by 4D printing
+Behavior,Shape changing,8,10.3390/polym12030519,Shape-Adaptive Metastructures with Variable Bandgap Regions by 4D Printing
+Behavior,Shape changing,9,10.1016/j.jfoodeng.2021.110757,Microwave-induced spontaneous deformation of purple potato puree and oleogel in 4D printing
+Behavior,Shape changing,10,10.1007/s00170-024-13130-9,Temperature-driven controllable deformation in 4D printing through programmable heterogeneous laminated bilayer structure
