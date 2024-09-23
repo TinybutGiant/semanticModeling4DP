@@ -27,7 +27,7 @@ LOAD CSV WITH HEADERS 
 FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/main/data.csv' AS row
 WITH row
 WHERE row.type = 'Material'
-MERGE (m:Material {description: row.description})
+MERGE (m:Material {name: row.description})
 ON CREATE SET 
     m.index = toInteger(row.index), 
     m.doi = row.doi, 
@@ -189,3 +189,9 @@ CALL {
   // query
 } IN TRANSACTIONS [OF X ROWS]
 ```
+
+Graph Visualization with db.schema.visualization() 
+```
+call db.schema.visualization() 
+```
+
