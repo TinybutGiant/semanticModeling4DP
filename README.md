@@ -39,7 +39,7 @@ LOAD CSV WITH HEADERS 
 FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/main/data.csv' AS row
 WITH row
 WHERE row.type = 'Usage'
-MERGE (u:Usage {description: row.description})
+MERGE (u:Usage {name: row.description})
 ON CREATE SET 
     u.index = toInteger(row.index),
     u.doi = row.doi, 
@@ -53,11 +53,11 @@ WITH row
 WHERE row.type = 'Stimuli'
 MERGE (s:Stimuli {doi: row.doi})  // Merge by DOI to avoid duplicate nodes
 ON CREATE SET 
-    s.description = row.description,  
+    s.name = row.description,  
     s.index = toInteger(row.index),  
     s.title = row.title
 ON MATCH SET
-    s.description = row.description,  // Update the properties if the node already exists
+    s.name = row.description,  // Update the properties if the node already exists
     s.index = toInteger(row.index),  
     s.title = row.title;      
 ```
@@ -73,11 +73,11 @@ WITH row
 WHERE row.type = 'Response'
 MERGE (r:Response {doi: row.doi})
 ON CREATE SET 
-    r.description = row.description,  
+    r.name = row.description,  
     r.index = toInteger(row.index),  
     r.title = row.title
 ON MATCH SET
-    r.description = row.description,  // Update the properties if the node already exists
+    r.name = row.description,  // Update the properties if the node already exists
     r.index = toInteger(row.index),  
     r.title = row.title;  
 ```
