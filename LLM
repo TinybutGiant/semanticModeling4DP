@@ -1,0 +1,17 @@
+Common Hallucination Problems
+
+  Temperature: The higher the temperature value, the more random the generated result will become, and the more likely the response will contain false statements.
+
+  Missing Information
+
+  Model Training and Complexity
+
+Improving LLM Accuracy
+
+  Prompt Engineering: Zero-shot learning. Be Positive
+
+  In-Context Learning: Few-shot learning.
+
+  Fine-Tuning: additional language model training on a smaller, task-specific dataset after its primary training phase. 
+
+  Grounding: external, up-to-date sources or databases to enrich the responses.
