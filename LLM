@@ -15,3 +15,17 @@ Improving LLM Accuracy
   Fine-Tuning: additional language model training on a smaller, task-specific dataset after its primary training phase. 
 
   Grounding: external, up-to-date sources or databases to enrich the responses.
+
+Embedding input about the 4D printing:
+Foramt: [Stimuli-Responsive]* memory structure [Transformation][Behavior] in [Material] [Usage context]
+"Stimuli: Light, Response: Elongation, Transformation: Dual shape one-way reversible, Behavior: Shape changing, Material: Nanosilica fillers and Shape Memory Polymer (SMP) resins, Usage: Nanosilica-enhanced High-Speed photopolymerization-based 4D Printing Applications."
+"Stimuli: Light or Temperature, Response: Elongation, Transformation: Multiple-shape, Behavior: Shape changing, Material: Shape Memory Polymers (SMP), Usage: SMPs in Nano-photonic and Electronic Devices."
+"Stimuli: Temperature, Response: Elongation, Transformation: Dual shape one-way reversible, Behavior: Shape changing, Material: NiTi Shape-Memory Alloys (SMAs), Usage: NiTi SMAs for Smart Structures."
+"Stimuli: Light or Temperature, Response: Elongation, Transformation: Multiple-shape, Behavior: Shape changing, Material: Fe-Ni-Ti-Al maraging steel, Usage: Fe-Ni-Ti-Al Maraging Steel for Additive Manufacturing."
+"Stimuli: Mechanical Force, Response: Elongation, Transformation: Dual shape two-way reversible, Behavior: Shape changing, Material: Polylactic Acid (PLA) and Lycra-knitted fabric, Usage: 4D Textiles with Thermal Stimulation."
+"Stimuli: Temperature, Response: Elongation, Transformation: Multiple-shape, Behavior: Shape changing, Material: Photopolymer with Temperature Memory Effect (TME), Usage: Auxetic Grids with Tunable Behavior."
+"Stimuli: Magnetic Field, Response: Elongation, Transformation: Dual shape one-way reversible, Behavior: Shape changing, Material: Flexible soft-magnetic photosensitive resin (consisting of flexible long-chain acrylic resin monomer and soft magnetic iron particles), Usage: Flexible Soft-magnetic Composites."
+"Stimuli: Magnetic Field, Response: Elongation, Transformation: Dual shape one-way reversible, Behavior: Shape changing, Material: PETG-ABS-Fe3O4 nanocomposites, Usage: Magnetic Nanocomposites for Medical Applications."
+"Stimuli: Temperature, Response: Elongation, Transformation: Dual shape one-way reversible, Behavior: Shape changing, Material: PETG-PBAT blends (Polyethylene Terephthalate Glycol and Polybutylene Adipate Terephthalate), Usage: PETG-PBAT Blends for Shape Memory Applications."
+"Stimuli: Temperature, Response: Elongation, Transformation: Dual shape one-way reversible, Behavior: Shape changing, Material: Polyvinyl Chloride (PVC) and Polypropylene (PP), Usage: PVC-PP Composites for Industrial Applications."
+
