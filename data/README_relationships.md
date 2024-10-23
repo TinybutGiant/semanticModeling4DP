@@ -46,10 +46,25 @@ MERGE (p)-[:HAS_B]->(b)
 ```
 
 // Step 3: Create the **_PAIR pairing relationships
+1. Create MU_PAIR
 ```
 MATCH (m:Material), (u:Usage)
+WHERE m.id = u.id  // Match Material and Usage nodes with the same index
 WITH DISTINCT m, u
-MERGE (m)-[:MU_PAIR]->(u)
+MERGE (m)-[:MU_PAIR]->(u)  // Create the relationship only if it doesn't already exist
 ```
-
+2. Create SR_PAIR
+```
+MATCH (s:Stimuli), (r:Response)
+WHERE s.id = r.id  // Match Material and Usage nodes with the same index
+WITH DISTINCT s, r
+MERGE (s)-[:SR_PAIR]->(r)  // Create the relationship only if it doesn't already exist
+```
+3. Create TB_PAIR
+```
+MATCH (m:Material), (u:Usage)
+WHERE m.id = u.id  // Match Material and Usage nodes with the same index
+WITH DISTINCT m, u
+MERGE (m)-[:MU_PAIR]->(u)  // Create the relationship only if it doesn't already exist
+```
 
