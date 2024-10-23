@@ -134,3 +134,71 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'MS' THEN [1] ELSE [] END 
 )
 
 ```
+5. Code for adding transformation nodes
+```
+// Load Transformation Data
+LOAD CSV WITH HEADERS 
+FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/refs/heads/main/data/transformation_data.csv' AS row
+WITH row
+
+// For PD perspective
+FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PD' THEN [1] ELSE [] END |
+    MERGE (t:Transformation:PD_Transformation {id: toInteger(row.id)})
+    ON CREATE SET 
+        t.name = row.name_PD,
+        t.description = row.description_PD,
+        t.embedding = row.embedding_PD
+)
+
+// For PE perspective
+FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PE' THEN [1] ELSE [] END |
+    MERGE (t:Transformation:PE_Transformation {id: toInteger(row.id)})
+    ON CREATE SET 
+        t.name = row.name_PE,
+        t.description = row.description_PE,
+        t.embedding = row.embedding_PE
+)
+
+// For MS perspective
+FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'MS' THEN [1] ELSE [] END |
+    MERGE (t:Transformation:MS_Transformation {id: toInteger(row.id)})
+    ON CREATE SET 
+        t.name = row.name_MS,
+        t.description = row.description_MS,
+        t.embedding = row.embedding_MS
+)
+```
+6. Code for adding behavior nodes
+```
+LOAD CSV WITH HEADERS 
+FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/refs/heads/main/data/behavior_data.csv' AS row
+WITH row
+
+// For PD perspective
+FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PD' THEN [1] ELSE [] END |
+    MERGE (b:Behavior:PD_Behavior {id: toInteger(row.id)})
+    ON CREATE SET 
+        b.name = row.name_PD,
+        b.description = row.description_PD,
+        b.embedding = row.embedding_PD
+)
+
+// For PE perspective
+FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PE' THEN [1] ELSE [] END |
+    MERGE (b:Behavior:PE_Behavior {id: toInteger(row.id)})
+    ON CREATE SET 
+        b.name = row.name_PE,
+        b.description = row.description_PE,
+        b.embedding = row.embedding_PE
+)
+
+// For MS perspective
+FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'MS' THEN [1] ELSE [] END |
+    MERGE (b:Behavior:MS_Behavior {id: toInteger(row.id)})
+    ON CREATE SET 
+        b.name = row.name_MS,
+        b.description = row.description_MS,
+        b.embedding = row.embedding_MS
+)
+
+```
