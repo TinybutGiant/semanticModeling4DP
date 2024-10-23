@@ -3,7 +3,7 @@ updated data for neo4j
 1. Codes for adding material nodes
 ```
 LOAD CSV WITH HEADERS 
-FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/main/data.csv' AS row
+FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/refs/heads/main/data/material_data.csv' AS row
 WITH row
 
 // For PD perspective
