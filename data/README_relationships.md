@@ -2,6 +2,7 @@
 ```
 MERGE (p:Product {name: '4D Printing Product'})
 ```
+// Step 2: Create the Product HAS_* relationships
 1. create HSA_M relationship
 ```
 MATCH (m:Material), (p:Product {name: '4D Printing Product'})
@@ -43,3 +44,12 @@ MATCH (b:Behavior), (p:Product {name: '4D Printing Product'})
 WITH DISTINCT b, p
 MERGE (p)-[:HAS_B]->(b)
 ```
+
+// Step 3: Create the **_PAIR pairing relationships
+```
+MATCH (m:Material), (u:Usage)
+WITH DISTINCT m, u
+MERGE (m)-[:MU_PAIR]->(u)
+```
+
+
