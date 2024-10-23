@@ -62,9 +62,9 @@ MERGE (s)-[:SR_PAIR]->(r)  // Create the relationship only if it doesn't already
 ```
 3. Create TB_PAIR
 ```
-MATCH (m:Material), (u:Usage)
-WHERE m.id = u.id  // Match Material and Usage nodes with the same index
-WITH DISTINCT m, u
-MERGE (m)-[:MU_PAIR]->(u)  // Create the relationship only if it doesn't already exist
+MATCH (t:Transformation), (b:Behavior)
+WHERE t.id = b.id  // Match Material and Usage nodes with the same index
+WITH DISTINCT t, b
+MERGE (t)-[:TB_PAIR]->(b)  // Create the relationship only if it doesn't already exist
 ```
 
