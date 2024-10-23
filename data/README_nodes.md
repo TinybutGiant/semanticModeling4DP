@@ -108,7 +108,7 @@ WITH row
 
 // For PD perspective
 FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PD' THEN [1] ELSE [] END |
-    MERGE (r:Response:PD_Response {id: toInteger(row.id)})
+    MERGE (r:Response:PD_Response { id: row.id})
     ON CREATE SET 
         r.name = row.name_PD,
         r.description = row.description_PD,
@@ -117,7 +117,7 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PD' THEN [1] ELSE [] END 
 
 // For PE perspective
 FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PE' THEN [1] ELSE [] END |
-    MERGE (r:Response:PE_Response {id: toInteger(row.id)})
+    MERGE (r:Response:PE_Response {id: row.id})
     ON CREATE SET 
         r.name = row.name_PE,
         r.description = row.description_PE,
@@ -126,7 +126,7 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PE' THEN [1] ELSE [] END 
 
 // For MS perspective
 FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'MS' THEN [1] ELSE [] END |
-    MERGE (r:Response:MS_Response {id: toInteger(row.id)})
+    MERGE (r:Response:MS_Response {id: row.id})
     ON CREATE SET 
         r.name = row.name_MS,
         r.description = row.description_MS,
@@ -143,7 +143,7 @@ WITH row
 
 // For PD perspective
 FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PD' THEN [1] ELSE [] END |
-    MERGE (t:Transformation:PD_Transformation {id: toInteger(row.id)})
+    MERGE (t:Transformation:PD_Transformation {id: row.id})
     ON CREATE SET 
         t.name = row.name_PD,
         t.description = row.description_PD,
@@ -152,7 +152,7 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PD' THEN [1] ELSE [] END 
 
 // For PE perspective
 FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PE' THEN [1] ELSE [] END |
-    MERGE (t:Transformation:PE_Transformation {id: toInteger(row.id)})
+    MERGE (t:Transformation:PE_Transformation {id: row.id)
     ON CREATE SET 
         t.name = row.name_PE,
         t.description = row.description_PE,
@@ -161,7 +161,7 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PE' THEN [1] ELSE [] END 
 
 // For MS perspective
 FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'MS' THEN [1] ELSE [] END |
-    MERGE (t:Transformation:MS_Transformation {id: toInteger(row.id)})
+    MERGE (t:Transformation:MS_Transformation {id: row.id})
     ON CREATE SET 
         t.name = row.name_MS,
         t.description = row.description_MS,
@@ -176,7 +176,7 @@ WITH row
 
 // For PD perspective
 FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PD' THEN [1] ELSE [] END |
-    MERGE (b:Behavior:PD_Behavior {id: toInteger(row.id)})
+    MERGE (b:Behavior:PD_Behavior {id: row.id})
     ON CREATE SET 
         b.name = row.name_PD,
         b.description = row.description_PD,
@@ -185,7 +185,7 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PD' THEN [1] ELSE [] END 
 
 // For PE perspective
 FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PE' THEN [1] ELSE [] END |
-    MERGE (b:Behavior:PE_Behavior {id: toInteger(row.id)})
+    MERGE (b:Behavior:PE_Behavior {id: row.id})
     ON CREATE SET 
         b.name = row.name_PE,
         b.description = row.description_PE,
@@ -194,7 +194,7 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PE' THEN [1] ELSE [] END 
 
 // For MS perspective
 FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'MS' THEN [1] ELSE [] END |
-    MERGE (b:Behavior:MS_Behavior {id: toInteger(row.id)})
+    MERGE (b:Behavior:MS_Behavior {id: row.id})
     ON CREATE SET 
         b.name = row.name_MS,
         b.description = row.description_MS,
