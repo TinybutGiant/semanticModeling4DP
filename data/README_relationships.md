@@ -83,6 +83,12 @@ WHERE m.id = r.id  // Match Material and Response nodes with the same index
 WITH DISTINCT m, r
 MERGE (m)-[:AFFECTS]->(r)  // Create the relationship only if it doesn't already exist
 ```
+Create label Macro_view_of_application (Usage) for pathway S->U, R->U
+```
+MATCH (u:Usage)
+SET u:Macro_view_of_application
+RETURN u, labels(u) AS labels
+```
 ```
 MATCH (s:Stimuli), (u:Usage)
 WHERE s.id = u.id  // Match Stimuli and Usage nodes with the same index
