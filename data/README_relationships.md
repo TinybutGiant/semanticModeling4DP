@@ -67,4 +67,26 @@ WHERE t.id = b.id  // Match Material and Usage nodes with the same index
 WITH DISTINCT t, b
 MERGE (t)-[:TB_PAIR]->(b)  // Create the relationship only if it doesn't already exist
 ```
+// Step 4: Create the relationships among **_PAIR bsed on combinations
+1. MU-SR Pair (Material-Usage to Stimuli-Response)
+```
+MATCH (m:Material), (u:Usage)
+WHERE m.id = u.id  // Match Material and Usage nodes with the same index
+WITH DISTINCT m, u
+MERGE (m)-[:MU_PAIR]->(u)  // Create the relationship only if it doesn't already exist
+```
+2. MU-TB Pair (Material-Usage to Transformation-Behavior):
+```
+MATCH (s:Stimuli), (r:Response)
+WHERE s.id = r.id  // Match Material and Usage nodes with the same index
+WITH DISTINCT s, r
+MERGE (s)-[:SR_PAIR]->(r)  // Create the relationship only if it doesn't already exist
+```
+3. SR-TB Pair (Stimuli-Response to Transformation-Behavior):
+```
+MATCH (t:Transformation), (b:Behavior)
+WHERE t.id = b.id  // Match Material and Usage nodes with the same index
+WITH DISTINCT t, b
+MERGE (t)-[:TB_PAIR]->(b)  // Create the relationship only if it doesn't already exist
+```
 
