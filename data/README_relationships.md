@@ -71,6 +71,13 @@ MERGE (t)-[:TB_PAIR]->(b)  // Create the relationship only if it doesn't already
 1. MU-SR Pair (Material-Usage to Stimuli-Response).
 We are establishing a connection between the macro view of application (Usage) and the material science micro view (Stimuli-Response), suggesting that application requirements in terms of structure, size, deform speed, and function (e.g., for a dashboard) relate directly to material properties like response ratio.
 Pathways (M->S, M->R, S->U, R->U): (may have insights that each path (e.g., M->S) specifically affects the Stimuli-Response layer, perhaps detailing how material properties (like nanosilica reinforcement) influence reaction times under different stimuli, which impacts usage.)
+1.1 Create label Micro_view_of_material_science (Stimuli-Response) for pathway M->S, M->R
+```
+MATCH (s:Stimuli), (r:Response)
+SET s:Micro_view_of_material_science, r:Micro_view_of_material_science
+RETURN s, labels(s) AS s_labels, r, labels(r) AS r_labels
+```
+1.2 Create affects relationships for pathway M->S, M->R
 ```
 MATCH (m:Material), (s:Stimuli)
 WHERE m.id = s.id  // Match Material and Stimuli nodes with the same index
@@ -83,12 +90,13 @@ WHERE m.id = r.id  // Match Material and Response nodes with the same index
 WITH DISTINCT m, r
 MERGE (m)-[:AFFECTS]->(r)  // Create the relationship only if it doesn't already exist
 ```
-Create label Macro_view_of_application (Usage) for pathway S->U, R->U
+1.3 Create label Macro_view_of_application (Usage) for pathway S->U, R->U
 ```
 MATCH (u:Usage)
 SET u:Macro_view_of_application
 RETURN u, labels(u) AS labels
 ```
+1.4 Create affects relationships for pathway S->U, R->U
 ```
 MATCH (s:Stimuli), (u:Usage)
 WHERE s.id = u.id  // Match Stimuli and Usage nodes with the same index
