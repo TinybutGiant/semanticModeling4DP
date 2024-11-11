@@ -55,8 +55,8 @@ MERGE (m)-[:MU_PAIR]->(u)  // Create the relationship only if it doesn't already
 ```
 2. Create SR_PAIR
 ```
-MATCH (s:Stimuli), (r:Stimuli)
-WHERE s.id = r.id  // Match Stimuli and Stimuli nodes with the same index
+MATCH (s:Stimuli), (r:Response)
+WHERE s.id = r.id  // Match Stimuli and Response nodes with the same index
 WITH DISTINCT s, r
 MERGE (s)-[:SR_PAIR]->(r)  // Create the relationship only if it doesn't already exist
 ```
@@ -70,12 +70,30 @@ MERGE (t)-[:TB_PAIR]->(b)  // Create the relationship only if it doesn't already
 // Step 4: Create the relationships among **_PAIR bsed on combinations
 1. MU-SR Pair (Material-Usage to Stimuli-Response).
 We are establishing a connection between the macro view of application (Usage) and the material science micro view (Stimuli-Response), suggesting that application requirements in terms of structure, size, deform speed, and function (e.g., for a dashboard) relate directly to material properties like response ratio.
-Pathways (M->S, M->R, S->U, R->U):
+Pathways (M->S, M->R, S->U, R->U): (may have insights that each path (e.g., M->S) specifically affects the Stimuli-Response layer, perhaps detailing how material properties (like nanosilica reinforcement) influence reaction times under different stimuli, which impacts usage.)
 ```
 MATCH (m:Material), (s:Stimuli)
-WHERE m.id = s.id  // Match Material and Usage nodes with the same index
+WHERE m.id = s.id  // Match Material and Stimuli nodes with the same index
 WITH DISTINCT m, s
 MERGE (m)-[:AFFECTS]->(s)  // Create the relationship only if it doesn't already exist
+```
+```
+MATCH (m:Material), (r:Response)
+WHERE m.id = r.id  // Match Material and Response nodes with the same index
+WITH DISTINCT m, r
+MERGE (m)-[:AFFECTS]->(r)  // Create the relationship only if it doesn't already exist
+```
+```
+MATCH (s:Stimuli), (u:Usage)
+WHERE s.id = u.id  // Match Stimuli and Usage nodes with the same index
+WITH DISTINCT s, u
+MERGE (s)-[:AFFECTS]->(u)  // Create the relationship only if it doesn't already exist
+```
+```
+MATCH (r:Response), (u:Usage)
+WHERE r.id = u.id  // Match Response and Usage nodes with the same index
+WITH DISTINCT r, u
+MERGE (r)-[:AFFECTS]->(u)  // Create the relationship only if it doesn't already exist
 ```
 2. MU-TB Pair (Material-Usage to Transformation-Behavior):
 ```
