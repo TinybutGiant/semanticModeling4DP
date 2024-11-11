@@ -68,7 +68,9 @@ WITH DISTINCT t, b
 MERGE (t)-[:TB_PAIR]->(b)  // Create the relationship only if it doesn't already exist
 ```
 // Step 4: Create the relationships among **_PAIR bsed on combinations
-1. MU-SR Pair (Material-Usage to Stimuli-Response)
+1. MU-SR Pair (Material-Usage to Stimuli-Response).
+We are establishing a connection between the macro view of application (Usage) and the material science micro view (Stimuli-Response), suggesting that application requirements in terms of structure, size, deform speed, and function (e.g., for a dashboard) relate directly to material properties like response ratio.
+Pathways (M->S, M->R, S->U, R->U):
 ```
 MATCH (m:Material), (u:Usage)
 WHERE m.id = u.id  // Match Material and Usage nodes with the same index
