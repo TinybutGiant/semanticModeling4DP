@@ -109,7 +109,16 @@ WHERE r.id = u.id  // Match Response and Usage nodes with the same index
 WITH DISTINCT r, u
 MERGE (r)-[:AFFECTS]->(u)  // Create the relationship only if it doesn't already exist
 ```
-2. MU-TB Pair (Material-Usage to Transformation-Behavior):
+2. MU-TB Pair (Material-Usage to Transformation-Behavior)
+We are linking the application macro view (Usage) to the geometric micro view (Transformation-Behavior), highlighting how application requirements drive transformations and behaviors, like shape-changing properties and elongation ratios.
+Pathways (U->T, U->B, T->U, B->U): The pathways indicate that usage requirements (U) drive both transformation (T) and behavior (B), while Transformation-Behavior (TB) impacts usage needs. This is effective for capturing how design requirements for size, shape, and functionality feed into transformation capabilities, and vice versa.
+2.1 Create label Micro_view_of_geometric (Transformation-Behavior) for pathway U->T, U->B
+```
+MATCH (t:Transformation), (b:Behavior)
+SET t:Micro_view_of_material_science, b:Micro_view_of_material_science
+RETURN t, labels(t) AS t_labels, b, labels(b) AS b_labels
+```
+2.2 Create affects relationships for pathway U->T, U->B
 ```
 MATCH (s:Stimuli), (r:Response)
 WHERE s.id = r.id  // Match Material and Usage nodes with the same index
