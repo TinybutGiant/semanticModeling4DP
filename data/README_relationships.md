@@ -55,15 +55,15 @@ MERGE (m)-[:MU_PAIR]->(u)  // Create the relationship only if it doesn't already
 ```
 2. Create SR_PAIR
 ```
-MATCH (s:Stimuli), (r:Response)
-WHERE s.id = r.id  // Match Material and Usage nodes with the same index
+MATCH (s:Stimuli), (r:Stimuli)
+WHERE s.id = r.id  // Match Stimuli and Stimuli nodes with the same index
 WITH DISTINCT s, r
 MERGE (s)-[:SR_PAIR]->(r)  // Create the relationship only if it doesn't already exist
 ```
 3. Create TB_PAIR
 ```
 MATCH (t:Transformation), (b:Behavior)
-WHERE t.id = b.id  // Match Material and Usage nodes with the same index
+WHERE t.id = b.id  // Match Transformation and Behavior nodes with the same index
 WITH DISTINCT t, b
 MERGE (t)-[:TB_PAIR]->(b)  // Create the relationship only if it doesn't already exist
 ```
@@ -72,10 +72,10 @@ MERGE (t)-[:TB_PAIR]->(b)  // Create the relationship only if it doesn't already
 We are establishing a connection between the macro view of application (Usage) and the material science micro view (Stimuli-Response), suggesting that application requirements in terms of structure, size, deform speed, and function (e.g., for a dashboard) relate directly to material properties like response ratio.
 Pathways (M->S, M->R, S->U, R->U):
 ```
-MATCH (m:Material), (u:Usage)
-WHERE m.id = u.id  // Match Material and Usage nodes with the same index
-WITH DISTINCT m, u
-MERGE (m)-[:MU_PAIR]->(u)  // Create the relationship only if it doesn't already exist
+MATCH (m:Material), (s:Stimuli)
+WHERE m.id = s.id  // Match Material and Usage nodes with the same index
+WITH DISTINCT m, s
+MERGE (m)-[:AFFECTS]->(s)  // Create the relationship only if it doesn't already exist
 ```
 2. MU-TB Pair (Material-Usage to Transformation-Behavior):
 ```
