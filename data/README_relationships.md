@@ -71,6 +71,7 @@ MERGE (t)-[:TB_PAIR]->(b)  // Create the relationship only if it doesn't already
 1. MU-SR Pair (Material-Usage to Stimuli-Response).
 We are establishing a connection between the macro view of application (Usage) and the material science micro view (Stimuli-Response), suggesting that application requirements in terms of structure, size, deform speed, and function (e.g., for a dashboard) relate directly to material properties like response ratio.
 Pathways (M->S, M->R, S->U, R->U): (may have insights that each path (e.g., M->S) specifically affects the Stimuli-Response layer, perhaps detailing how material properties (like nanosilica reinforcement) influence reaction times under different stimuli, which impacts usage.)
+
 1.1 Create label Micro_view_of_material_science (Stimuli-Response) for pathway M->S, M->R
 ```
 MATCH (s:Stimuli), (r:Response)
@@ -112,6 +113,7 @@ MERGE (r)-[:AFFECTS]->(u)  // Create the relationship only if it doesn't already
 2. MU-TB Pair (Material-Usage to Transformation-Behavior)
 We are linking the application macro view (Usage) to the geometric micro view (Transformation-Behavior), highlighting how application requirements drive transformations and behaviors, like shape-changing properties and elongation ratios.
 Pathways (U->T, U->B, T->U, B->U): The pathways indicate that usage requirements (U) drive both transformation (T) and behavior (B), while Transformation-Behavior (TB) impacts usage needs. This is effective for capturing how design requirements for size, shape, and functionality feed into transformation capabilities, and vice versa.
+
 2.1 Create label Micro_view_of_geometric (Transformation-Behavior) for pathway U->T, U->B
 ```
 MATCH (t:Transformation), (b:Behavior)
