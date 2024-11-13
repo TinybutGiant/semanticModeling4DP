@@ -122,16 +122,48 @@ RETURN t, labels(t) AS t_labels, b, labels(b) AS b_labels
 ```
 2.2 Create affects relationships for pathway U->T, U->B
 ```
-MATCH (s:Stimuli), (r:Response)
-WHERE s.id = r.id  // Match Material and Usage nodes with the same index
-WITH DISTINCT s, r
-MERGE (s)-[:SR_PAIR]->(r)  // Create the relationship only if it doesn't already exist
+MATCH (u:Usage), (t:Transformation)
+WHERE u.id = t.id  // Match Material and Usage nodes with the same index
+WITH DISTINCT u, t
+MERGE (u)-[:AFFECTS->(t)  // Create the relationship only if it doesn't already exist
+```
+```
+MATCH (u:Usage), (b:Behavior)
+WHERE u.id = b.id  // Match Material and Usage nodes with the same index
+WITH DISTINCT u, b
+MERGE (u)-[:AFFECTS]->(b)  // Create the relationship only if it doesn't already exist
 ```
 3. SR-TB Pair (Stimuli-Response to Transformation-Behavior):
+We are connecting the material science micro view (Stimuli-Response) to the geometric micro view (Transformation-Behavior), representing the interaction between material responses and how they influence or enable certain transformations.
+Pathways (S->T, R->T, S->B, R->B)
+
+3.1 The label Micro_view_of_material_science (Stimuli-Response) has been created in previous step 4 - 1.1; label  Micro_view_of_geometric (Transformation-Behavior) has been created in previous step 4 - 2.1; 
+
+3.2 Create affects relationships for pathway S->T, R->T
 ```
-MATCH (t:Transformation), (b:Behavior)
-WHERE t.id = b.id  // Match Material and Usage nodes with the same index
-WITH DISTINCT t, b
-MERGE (t)-[:TB_PAIR]->(b)  // Create the relationship only if it doesn't already exist
+MATCH (s:Stimuli), (t:Transformation)
+WHERE s.id = t.id  // Match Material and Usage nodes with the same index
+WITH DISTINCT s, t
+MERGE (s)-[:AFFECTS]->(t)  // Create the relationship only if it doesn't already exist
+```
+```
+MATCH (r:Response), (t:Transformation)
+WHERE r.id = t.id  // Match Material and Usage nodes with the same index
+WITH DISTINCT r, t
+MERGE (r)-[:AFFECTS]->(t)  // Create the relationship only if it doesn't already exist
+```
+
+3.3 Create affects relationships for pathway S->B, R->B
+```
+MATCH (s:Stimuli), (b:Behavior)
+WHERE s.id = b.id  // Match Material and Usage nodes with the same index
+WITH DISTINCT s, b
+MERGE (s)-[:AFFECTS]->(b)  // Create the relationship only if it doesn't already exist
+```
+```
+MATCH (r:Response), (b:Behavior)
+WHERE r.id = b.id  // Match Material and Usage nodes with the same index
+WITH DISTINCT r, b
+MERGE (r)-[:AFFECTS]->(b)  // Create the relationship only if it doesn't already exist
 ```
 
