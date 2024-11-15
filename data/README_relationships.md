@@ -125,7 +125,7 @@ RETURN t, labels(t) AS t_labels, b, labels(b) AS b_labels
 MATCH (u:Usage), (t:Transformation)
 WHERE u.id = t.id  // Match Material and Usage nodes with the same index
 WITH DISTINCT u, t
-MERGE (u)-[:AFFECTS->(t)  // Create the relationship only if it doesn't already exist
+MERGE (u)-[:AFFECTS]->(t)  // Create the relationship only if it doesn't already exist
 ```
 ```
 MATCH (u:Usage), (b:Behavior)
