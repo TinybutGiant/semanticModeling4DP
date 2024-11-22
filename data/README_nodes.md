@@ -31,7 +31,9 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'MS' THEN [1] ELSE [] END 
     ON CREATE SET 
         m.name = row.name_MS,
         m.description = row.description_MS,
-        m.embedding = row.embedding_MS
+        m.embedding = row.embedding_MS,
+        m.sample_parameters = row.sample_parameters_MS,
+        m.sample_parameters_embedding = row.sample_parameters_MS_embedding
 )
 
 ```
