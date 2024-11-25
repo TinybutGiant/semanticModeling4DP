@@ -39,6 +39,10 @@ OPTIONS { indexConfig: {
     }
 };
 ```
+drop the index if need:
+```
+DROP INDEX embeddableEmbeddingIndex
+```
 
 For sample_parameters_embedding (specific to MS_Material):
 ```
