@@ -67,7 +67,7 @@ WHERE t.id = b.id  // Match Transformation and Behavior nodes with the same inde
 WITH DISTINCT t, b
 MERGE (t)-[:TB_PAIR]->(b)  // Create the relationship only if it doesn't already exist
 ```
-// Step 4: Create the relationships among **_PAIR bsed on combinations
+// Step 4: Create the relationships among **_PAIR based on combinations
 1. MU-SR Pair (Material-Usage to Stimuli-Response).
 We are establishing a connection between the macro view of application (Usage) and the material science micro view (Stimuli-Response), suggesting that application requirements in terms of structure, size, deform speed, and function (e.g., for a dashboard) relate directly to material properties like response ratio.
 Pathways (M->S, M->R, S->U, R->U): (may have insights that each path (e.g., M->S) specifically affects the Stimuli-Response layer, perhaps detailing how material properties (like nanosilica reinforcement) influence reaction times under different stimuli, which impacts usage.)
