@@ -1,5 +1,5 @@
 updated data for neo4j,
-codes for generating the embedding on https://colab.research.google.com/gist/TinybutGiant/9947eb12b14dc32feaff3451b0cc5407/embedding_csv.ipynb
+codes for generating the embedding on https://colab.research.google.com/gist/TinybutGiant/9947eb12b14dc32feaff3451b0cc5407/embedding_csv.ipynb if you want to
 
 1. Codes for adding material nodes
 ```
