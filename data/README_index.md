@@ -9,7 +9,7 @@ SET m:Embeddable;
 MATCH (u:Usage)
 SET u:Embeddable;
 
-MATCH (n:Stimuli)
+MATCH (n:Stimulus)
 SET n:Embeddable;
 
 MATCH (n:Response)
