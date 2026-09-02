@@ -12,7 +12,7 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PD' THEN [1] ELSE [] END 
     MERGE (m:Material:PD_Material {id: row.id})
     ON CREATE SET 
         m.name = row.name_PD,
-        m.description = row.description_PD,
+        m.description = row.description_PD
 )
 
 // For PE perspective
@@ -20,7 +20,7 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PE' THEN [1] ELSE [] END 
     MERGE (m:Material:PE_Material {id: row.id})
     ON CREATE SET 
         m.name = row.name_PE,
-        m.description = row.description_PE,
+        m.description = row.description_PE
 )
 
 // For MS perspective
@@ -29,7 +29,7 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'MS' THEN [1] ELSE [] END 
     ON CREATE SET 
         m.name = row.name_MS,
         m.description = row.description_MS,
-        m.sample_parameters = row.sample_parameters_MS, //extra property
+        m.sample_parameters = row.sample_parameters_MS //extra property
 )
 
 ```
