@@ -66,7 +66,7 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'MS' THEN [1] ELSE [] END 
         u.embedding = row.embedding_MS
 )
 ```
-3. Code for adding stimuli nodes
+3. Code for adding stimulus nodes
 ```
 LOAD CSV WITH HEADERS 
 FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/refs/heads/main/data/Stimulus_data.csv' AS row
