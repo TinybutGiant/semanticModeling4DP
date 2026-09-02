@@ -69,12 +69,12 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'MS' THEN [1] ELSE [] END 
 3. Code for adding stimuli nodes
 ```
 LOAD CSV WITH HEADERS 
-FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/refs/heads/main/data/stimuli_data.csv' AS row
+FROM 'https://raw.githubusercontent.com/TinybutGiant/semanticModeling4DP/refs/heads/main/data/Stimulus_data.csv' AS row
 WITH row
 
 // For PD perspective
 FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PD' THEN [1] ELSE [] END |
-    MERGE (s:Stimuli:PD_Stimuli {id: row.id})
+    MERGE (s:Stimulus:PD_Stimulus {id: row.id})
     ON CREATE SET 
         s.name = row.name_PD,
         s.description = row.description_PD,
@@ -83,7 +83,7 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PD' THEN [1] ELSE [] END 
 
 // For PE perspective
 FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PE' THEN [1] ELSE [] END |
-    MERGE (s:Stimuli:PE_Stimuli {id: row.id})
+    MERGE (s:Stimulus:PE_Stimulus {id: row.id})
     ON CREATE SET 
         s.name = row.name_PE,
         s.description = row.description_PE,
@@ -92,7 +92,7 @@ FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'PE' THEN [1] ELSE [] END 
 
 // For MS perspective
 FOREACH (ignoreMe IN CASE WHEN row.perspective_type = 'MS' THEN [1] ELSE [] END |
-    MERGE (s:Stimuli:MS_Stimuli {id: row.id})
+    MERGE (s:Stimulus:MS_Stimulus {id: row.id})
     ON CREATE SET 
         s.name = row.name_MS,
         s.description = row.description_MS,
