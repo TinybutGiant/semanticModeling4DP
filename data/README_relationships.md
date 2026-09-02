@@ -19,7 +19,7 @@ MERGE (p)-[:HAS_U]->(u)
 
 3. create HAS_S relationship
 ```
-MATCH (s:Stimuli), (p:Product {name: '4D Printing Product'})
+MATCH (s:Stimulus), (p:Product {name: '4D Printing Product'})
 WITH DISTINCT s, p
 MERGE (p)-[:HAS_S]->(s)
 ```
@@ -55,8 +55,8 @@ MERGE (m)-[:MU_PAIR]->(u)  // Create the relationship only if it doesn't already
 ```
 2. Create SR_PAIR
 ```
-MATCH (s:Stimuli), (r:Response)
-WHERE s.id = r.id  // Match Stimuli and Response nodes with the same index
+MATCH (s:Stimulus), (r:Response)
+WHERE s.id = r.id  // Match Stimulus and Response nodes with the same index
 WITH DISTINCT s, r
 MERGE (s)-[:SR_PAIR]->(r)  // Create the relationship only if it doesn't already exist
 ```
@@ -68,20 +68,20 @@ WITH DISTINCT t, b
 MERGE (t)-[:TB_PAIR]->(b)  // Create the relationship only if it doesn't already exist
 ```
 // Step 4: Create the relationships among **_PAIR based on combinations
-1. MU-SR Pair (Material-Usage to Stimuli-Response).
-We are establishing a connection between the macro view of application (Usage) and the material science micro view (Stimuli-Response), suggesting that application requirements in terms of structure, size, deform speed, and function (e.g., for a dashboard) relate directly to material properties like response ratio.
-Pathways (M->S, M->R, S->U, R->U): (may have insights that each path (e.g., M->S) specifically affects the Stimuli-Response layer, perhaps detailing how material properties (like nanosilica reinforcement) influence reaction times under different stimuli, which impacts usage.)
+1. MU-SR Pair (Material-Usage to Stimulus-Response).
+We are establishing a connection between the macro view of application (Usage) and the material science micro view (Stimulus-Response), suggesting that application requirements in terms of structure, size, deform speed, and function (e.g., for a dashboard) relate directly to material properties like response ratio.
+Pathways (M->S, M->R, S->U, R->U): (may have insights that each path (e.g., M->S) specifically affects the Stimulus-Response layer, perhaps detailing how material properties (like nanosilica reinforcement) influence reaction times under different Stimulus, which impacts usage.)
 
-1.1 Create label Micro_view_of_material_science (Stimuli-Response) for pathway M->S, M->R
+1.1 Create label Micro_view_of_material_science (Stimulus-Response) for pathway M->S, M->R
 ```
-MATCH (s:Stimuli), (r:Response)
+MATCH (s:Stimulus), (r:Response)
 SET s:Micro_view_of_material_science, r:Micro_view_of_material_science
 RETURN s, labels(s) AS s_labels, r, labels(r) AS r_labels
 ```
 1.2 Create affects relationships for pathway M->S, M->R
 ```
-MATCH (m:Material), (s:Stimuli)
-WHERE m.id = s.id  // Match Material and Stimuli nodes with the same index
+MATCH (m:Material), (s:Stimulus)
+WHERE m.id = s.id  // Match Material and Stimulus nodes with the same index
 WITH DISTINCT m, s
 MERGE (m)-[:AFFECTS]->(s)  // Create the relationship only if it doesn't already exist
 ```
@@ -99,8 +99,8 @@ RETURN u, labels(u) AS labels
 ```
 1.4 Create affects relationships for pathway S->U, R->U
 ```
-MATCH (s:Stimuli), (u:Usage)
-WHERE s.id = u.id  // Match Stimuli and Usage nodes with the same index
+MATCH (s:Stimulus), (u:Usage)
+WHERE s.id = u.id  // Match Stimulus and Usage nodes with the same index
 WITH DISTINCT s, u
 MERGE (s)-[:AFFECTS]->(u)  // Create the relationship only if it doesn't already exist
 ```
@@ -133,15 +133,15 @@ WHERE u.id = b.id  // Match Material and Usage nodes with the same index
 WITH DISTINCT u, b
 MERGE (u)-[:AFFECTS]->(b)  // Create the relationship only if it doesn't already exist
 ```
-3. SR-TB Pair (Stimuli-Response to Transformation-Behavior):
-We are connecting the material science micro view (Stimuli-Response) to the geometric micro view (Transformation-Behavior), representing the interaction between material responses and how they influence or enable certain transformations.
+3. SR-TB Pair (Stimulus-Response to Transformation-Behavior):
+We are connecting the material science micro view (Stimulus-Response) to the geometric micro view (Transformation-Behavior), representing the interaction between material responses and how they influence or enable certain transformations.
 Pathways (S->T, R->T, S->B, R->B)
 
-3.1 The label Micro_view_of_material_science (Stimuli-Response) has been created in previous step 4 - 1.1; label  Micro_view_of_geometric (Transformation-Behavior) has been created in previous step 4 - 2.1; 
+3.1 The label Micro_view_of_material_science (Stimulus-Response) has been created in previous step 4 - 1.1; label  Micro_view_of_geometric (Transformation-Behavior) has been created in previous step 4 - 2.1; 
 
 3.2 Create affects relationships for pathway S->T, R->T
 ```
-MATCH (s:Stimuli), (t:Transformation)
+MATCH (s:Stimulus), (t:Transformation)
 WHERE s.id = t.id  // Match Material and Usage nodes with the same index
 WITH DISTINCT s, t
 MERGE (s)-[:AFFECTS]->(t)  // Create the relationship only if it doesn't already exist
@@ -155,7 +155,7 @@ MERGE (r)-[:AFFECTS]->(t)  // Create the relationship only if it doesn't already
 
 3.3 Create affects relationships for pathway S->B, R->B
 ```
-MATCH (s:Stimuli), (b:Behavior)
+MATCH (s:Stimulus), (b:Behavior)
 WHERE s.id = b.id  // Match Material and Usage nodes with the same index
 WITH DISTINCT s, b
 MERGE (s)-[:AFFECTS]->(b)  // Create the relationship only if it doesn't already exist
